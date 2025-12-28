@@ -1,39 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abriendo Programa...</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f4; }
-        .mensaje { color: #555; margin-bottom: 20px; }
-        .boton-iphone { 
-            display: none; padding: 15px 25px; background: #007bff; 
-            color: white; text-decoration: none; border-radius: 8px; font-weight: bold; 
-        }
-    </style>
+    <title>Cargando...</title>
 </head>
 <body>
-    <div class="mensaje">Redirigiendo a tu archivo en Google Drive...</div>
-    
-    <a id="link-manual" class="boton-iphone" href="#">Haga clic aquí si no redirige automáticamente</a>
-
     <script>
-        // Tu ID de archivo de Google Drive corregido
-        const FILE_ID = '1JCXxsY0-6XypJlCPg8IHJTfFWL8o96wuS';
+        // Dirección directa sin espacios ni símbolos raros
+        var enlace = "https://drive.google.com/file/d/1JCXxsY0-6XypJlCPg8IHJTfFWL8o96wuS/view";
         
-        // Construcción de la URL corregida (sin usar comillas invertidas para evitar errores en navegadores viejos)
-        const url = 'https://drive.google.com/file/d/' + FILE_ID + '/view';
-
-        // 1. Intento de redirección inmediata
-        window.location.replace(url);
-
-        // 2. Respaldo por si el navegador bloquea la redirección
-        setTimeout(function() {
-            const boton = document.getElementById('link-manual');
-            boton.href = url;
-            boton.style.display = 'inline-block';
-        }, 1000);
+        // Redirección forzada
+        window.location.href = enlace;
     </script>
+    <p style="text-align:center; font-family:sans-serif;">
+        Si no carga, <a href="https://drive.google.com/file/d/1JCXxsY0-6XypJlCPg8IHJTfFWL8o96wuS/view">haz clic aquí</a>.
+    </p>
 </body>
 </html>
+
