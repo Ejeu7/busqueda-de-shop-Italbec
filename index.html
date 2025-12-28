@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abriendo Programa...</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f4; }
+        .mensaje { color: #555; margin-bottom: 20px; }
         .boton-iphone { 
             display: none; padding: 15px 25px; background: #007bff; 
             color: white; text-decoration: none; border-radius: 8px; font-weight: bold; 
@@ -13,26 +14,26 @@
     </style>
 </head>
 <body>
-    <p>Redirigiendo a tu archivo en Google Drive...</p>
+    <div class="mensaje">Redirigiendo a tu archivo en Google Drive...</div>
     
     <a id="link-manual" class="boton-iphone" href="#">Haga clic aquí si no redirige automáticamente</a>
 
     <script>
-        // Tu ID de archivo de Google Drive
+        // Tu ID de archivo de Google Drive corregido
         const FILE_ID = '1JCXxsY0-6XypJlCPg8IHJTfFWL8o96wuS';
         
-        // URL de visualización (la mejor para que iPhone no de problemas)
-        const url = `https://drive.google.com/file/d/${FILE_ID}/view`;
+        // Construcción de la URL corregida (sin usar comillas invertidas para evitar errores en navegadores viejos)
+        const url = 'https://drive.google.com/file/d/' + FILE_ID + '/view';
 
-        // 1. Intento de redirección inmediata (Funciona en la mayoría de los casos)
+        // 1. Intento de redirección inmediata
         window.location.replace(url);
 
-        // 2. Respaldo para iPhone/Safari (si se bloquea la redirección)
+        // 2. Respaldo por si el navegador bloquea la redirección
         setTimeout(function() {
             const boton = document.getElementById('link-manual');
             boton.href = url;
             boton.style.display = 'inline-block';
-        }, 1500);
+        }, 1000);
     </script>
 </body>
 </html>
