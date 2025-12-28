@@ -2,18 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abriendo Programa...</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
+        .boton-iphone { 
+            display: none; padding: 15px 25px; background: #007bff; 
+            color: white; text-decoration: none; border-radius: 8px; font-weight: bold; 
+        }
+    </style>
 </head>
 <body>
     <p>Redirigiendo a tu archivo en Google Drive...</p>
-
-<script>
-    // Tu ID de archivo
-    const FILE_ID = '1JCXxsY0-6XypJlCPg8IHJTfFWL8o96wuS';
     
-    // URL de visualización (mejor para iPhone)
-    const url = `https://drive.google.com/file/d/${FILE_ID}/view`;
+    <a id="link-manual" class="boton-iphone" href="#">Haga clic aquí si no redirige automáticamente</a>
 
-    // Redirección inmediata
-    window.location.replace(url);
-</script>
+    <script>
+        // Tu ID de archivo de Google Drive
+        const FILE_ID = '1JCXxsY0-6XypJlCPg8IHJTfFWL8o96wuS';
+        
+        // URL de visualización (la mejor para que iPhone no de problemas)
+        const url = `https://drive.google.com/file/d/${FILE_ID}/view`;
+
+        // 1. Intento de redirección inmediata (Funciona en la mayoría de los casos)
+        window.location.replace(url);
+
+        // 2. Respaldo para iPhone/Safari (si se bloquea la redirección)
+        setTimeout(function() {
+            const boton = document.getElementById('link-manual');
+            boton.href = url;
+            boton.style.display = 'inline-block';
+        }, 1500);
+    </script>
+</body>
+</html>
