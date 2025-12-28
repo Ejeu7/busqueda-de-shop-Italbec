@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Abriendo Programa...</title>
+</head>
+<body>
+    <p>Redirigiendo a tu archivo en Google Drive...</p>
+
+    <script>
+        // Tu ID de archivo extraído del enlace que pasaste
+        const FILE_ID = '1JCXxsY0-6XypJlCPg8IHJTfWL8o96wuS';
+        
+        // URL para forzar la visualización del contenido
+        const url = `https://drive.google.com/uc?export=view&id=${FILE_ID}`;
+
+        // Abrir automáticamente al cargar la página
+        window.onload = function() {
+            window.location.href = url;
+        };
+    </script>
+</body>
+</html>
